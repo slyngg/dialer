@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ path: '../.env' });
 const express = require('express');
 const { google } = require('googleapis');
 const { GoogleSpreadsheet } = require('google-spreadsheet');
