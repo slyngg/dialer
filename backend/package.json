@@ -1,0 +1,20 @@
+{
+  "name": "homemaxx-dialer-backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "google-spreadsheet": "^4.1.1",
+    "googleapis": "^126.0.1",
+    "openai": "^4.11.1",
+    "twilio": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
