@@ -8,11 +8,23 @@ const { OpenAI } = require('openai');
 const app = express();
 app.use(express.json());
 
-// Initialize Twilio client
-const twilioClient = twilio(
-  process.env.TWILIO_ACCOUNT_SID,
-  process.env.TWILIO_AUTH_TOKEN
-);
+// Validate required Twilio environment variables
+if (!process.env.TWILIO_ACCOUNT_SID || !process.env.TWILIO_AUTH_TOKEN) {
+  console.error('Error: Twilio credentials are missing. Please check your .env file.');
+  process.exit(1);
+}
+
+// Initialize Twilio client with error handling
+let twilioClient;
+try {
+  twilioClient = twilio(
+    process.env.TWILIO_ACCOUNT_SID.trim(),
+    process.env.TWILIO_AUTH_TOKEN.trim()
+  );
+} catch (error) {
+  console.error('Error initializing Twilio client:', error);
+  process.exit(1);
+}
 
 // Initialize OpenAI client
 const openai = new OpenAI({
