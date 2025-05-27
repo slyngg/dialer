@@ -1,4 +1,4 @@
-# Dialer System
+# dialer System
 
 This is a complete dialer system for real estate lead management, integrating Google Sheets, Twilio Voice, and React.
 
